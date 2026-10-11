@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+}
+
+#controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+
+    background: rgba(20, 20, 20, 0.9);
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+
+    color: white;
+}
+
+#controls label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+#orbitalSelect {
+    background: #111;
+    color: #00ff66;
+
+    border: 1px solid #00ff66;
+    border-radius: 4px;
+
+    padding: 8px 12px;
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+/* Particle size slider */
+
+.slider-control {
+    margin-top: 20px;
+}
+
+.slider-control label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: white;
+}
+
+.slider-control input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: #00ff66;
+}
+
+#particleSizeValue {
+    color: #00ff66;
+    font-weight: bold;
+}
+
+/* ------------------------------------
+   Quantum information panel
+------------------------------------ */
+
+#orbitalInfo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 330px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    z-index: 10;
+
+    background: rgba(15, 15, 15, 0.92);
+    border: 1px solid #333;
+    border-radius: 8px;
+
+    padding: 20px;
+    color: white;
+}
+
+#orbitalInfo h2 {
+    font-size: 18px;
+    color: #00ff66;
+    margin-bottom: 20px;
+}
+
+#orbitalInfo h3 {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 12px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.info-row span {
+    color: #aaa;
+}
+
+.info-row strong {
+    color: white;
+    text-align: right;
+}
+
+.info-divider {
+    height: 1px;
+    background: #333;
+    margin: 18px 0;
+}
+
+#wavefunctionEquation {
+    font-size: 16px;
+    color: #00ff66;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+#orbitalDescription {
+    color: #ccc;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.phase-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+    color: #ccc;
+}
+
+.phase-legend span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.phase-legend i {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.phase-positive {
+    background: #00ff66;
+}
+
+.phase-negative {
+    background: #0088ff;
+}
+
+/* Small screens */
+
+@media (max-width: 700px) {
+    #orbitalInfo {
+        top: auto;
+        bottom: 15px;
+        right: 15px;
+        width: min(330px, calc(100vw - 30px));
+        max-height: 40vh;
+    }
+}
+
+#probabilityEquation {
+    font-size: 16px;
+    color: #0088ff;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+#orbitalInfo h3 {
+    margin-top: 15px;
+}

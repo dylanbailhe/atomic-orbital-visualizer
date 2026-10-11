@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Atomic Orbital Visualizer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div id="controls">
+    <label for="orbitalSelect">Hydrogen Orbital</label>
+
+    <select id="orbitalSelect">
+        <option value="1s">1s</option>
+        <option value="2s">2s</option>
+        <option value="2p">2p</option>
+        <option value="3s">3s</option>
+        <option value="3p">3p</option>
+        <option value="3dz2">3d (z²)</option>
+        <option value="3dxy">3d (xy)</option>
+        <option value="3dxz">3d (xz)</option>
+        <option value="3dyz">3d (yz)</option>
+        <option value="3dx2y2">3d (x²−y²)</option>
+        <!-- Fourth shell: 4s -->
+        <option value="4s">4s</option>
+
+        <!-- Fourth shell: 4p -->
+        <option value="4px">4p (x)</option>
+        <option value="4py">4p (y)</option>
+        <option value="4pz">4p (z)</option>
+
+        <!-- Fourth shell: 4d -->
+        <option value="4dz2">4d (z²)</option>
+        <option value="4dxy">4d (xy)</option>
+        <option value="4dxz">4d (xz)</option>
+        <option value="4dyz">4d (yz)</option>
+        <option value="4dx2y2">4d (x²−y²)</option>
+
+        <!-- Fourth shell: 4f -->
+        <option value="4fz3">4f (z³)</option>
+        <option value="4fxz2">4f (xz²)</option>
+        <option value="4fyz2">4f (yz²)</option>
+        <option value="4fzx2y2">4f (z(x²−y²))</option>
+        <option value="4fxyz">4f (xyz)</option>
+        <option value="4fxx2_3y2">4f (x(x²−3y²))</option>
+        <option value="4fyy2_3x2">4f (y(3x²−y²))</option>
+    </select>
+    <div class="slider-control">
+    <label for="particleSize">
+        Particle Size:
+        <span id="particleSizeValue">0.055</span>
+    </label>
+
+    <input
+        type="range"
+        id="particleSize"
+        min="0.01"
+        max="0.20"
+        step="0.005"
+        value="0.055"
+    >
+    </div>
+    <div class="slider-control">
+    <label for="particleCount">
+        Particle Count:
+        <span id="particleCountValue">10,000</span>
+    </label>
+
+    <input
+        type="range"
+        id="particleCount"
+        min="1000"
+        max="50000"
+        step="1000"
+        value="10000"
+    >
+    </div>
+</div>
+
+<div id="orbitalInfo">
+
+    <h2>Quantum Information</h2>
+
+    <div class="info-row">
+        <span>Orbital</span>
+        <strong id="infoOrbital">1s</strong>
+    </div>
+
+    <div class="info-row">
+        <span>Principal quantum number (n)</span>
+        <strong id="infoN">1</strong>
+    </div>
+
+    <div class="info-row">
+        <span>Angular momentum (l)</span>
+        <strong id="infoL">0</strong>
+    </div>
+
+    <div class="info-row">
+        <span>Magnetic quantum number (m)</span>
+        <strong id="infoM">0</strong>
+    </div>
+
+    <div class="info-row">
+        <span>Radial nodes</span>
+        <strong id="infoRadial">0</strong>
+    </div>
+
+    <div class="info-row">
+        <span>Angular nodes</span>
+        <strong id="infoAngular">0</strong>
+    </div>
+
+    <div class="info-divider"></div>
+
+    <h3>Wavefunction</h3>
+
+    <div id="wavefunctionEquation"></div>
+
+    <h3>Probability Density</h3>
+
+    <div id="probabilityEquation"></div>
+
+    <div class="info-divider"></div>
+
+    <h3>Orbital Description</h3>
+
+    <p id="orbitalDescription"></p>
+
+    <div class="info-divider"></div>
+
+    <div class="phase-legend">
+        <span><i class="phase-positive"></i> Positive phase</span>
+        <span><i class="phase-negative"></i> Negative phase</span>
+    </div>
+
+</div>
+
+<div id="container"></div>
+
+<script>
+window.MathJax = {
+    tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+    }
+};
+</script>
+
+<script defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
